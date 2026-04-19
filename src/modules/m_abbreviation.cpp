@@ -34,7 +34,7 @@ class ModuleAbbreviation final
 {
 public:
 	ModuleAbbreviation()
-		: Module(VF_VENDOR, "Allows commands to be abbreviated by appending a full stop.")
+		: Module(VF_VENDOR, "Permite abreviar comandos agregando un punto.")
 	{
 	}
 
@@ -60,7 +60,7 @@ public:
 			{
 				if (matchlist.length() > 450)
 				{
-					user->WriteNumeric(ERR_AMBIGUOUSCOMMAND, "Ambiguous abbreviation and too many possible matches.");
+					user->WriteNumeric(ERR_AMBIGUOUSCOMMAND, "Abreviatura ambigua y demasiadas coincidencias posibles.");
 					return MOD_RES_DENY;
 				}
 
@@ -78,7 +78,7 @@ public:
 		/* Ambiguous command, list the matches */
 		if (!matchlist.empty())
 		{
-			user->WriteNumeric(ERR_AMBIGUOUSCOMMAND, INSP_FORMAT("Ambiguous abbreviation, possible matches: {}{}", foundcommand, matchlist));
+			user->WriteNumeric(ERR_AMBIGUOUSCOMMAND, INSP_FORMAT("Abreviatura ambigua, posibles coincidencias: {}{}", foundcommand, matchlist));
 			return MOD_RES_DENY;
 		}
 
